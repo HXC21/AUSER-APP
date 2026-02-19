@@ -4,9 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AUSER Social Transport App</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        header, footer { background: #4CAF50; color: white; text-align: center; padding: 1em; }
+        main { padding: 20px; }
+        .journey, .ride { margin: 20px 0; }
+        input { padding: 10px; margin: 5px; width: 200px; }
+        button { padding: 10px; }
+    </style>
 </head>
 <body>
-    <h1>Welcome to AUSER Social Transport App</h1>
-    <p>Your go-to platform for connecting with transport services in your community.</p>
+    <header>
+        <h1>AUSER Social Transport App</h1>
+    </header>
+    <main>
+        <section class="journey">
+            <h2>Journey Management</h2>
+            <input type="text" id="startLocation" placeholder="Start Location" />
+            <input type="text" id="endLocation" placeholder="End Location" />
+            <button id="planJourney">Plan Journey</button>
+            <div id="journeyResult"></div>
+        </section>
+        <section class="ride">
+            <h2>Ride Finder</h2>
+            <input type="text" id="rideLocation" placeholder="Location" />
+            <button id="findRide">Find Ride</button>
+            <div id="rideResult"></div>
+        </section>
+        <section class="statistics">
+            <h2>Statistics</h2>
+            <button id="showStatistics">Show Statistics</button>
+            <div id="statisticsResult"></div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2026 AUSER Transport App</p>
+    </footer>
+    <script>
+        document.getElementById('planJourney').addEventListener('click', function() {
+            const start = document.getElementById('startLocation').value;
+            const end = document.getElementById('endLocation').value;
+            document.getElementById('journeyResult').textContent = `Journey planned from ${start} to ${end}.`;
+        });
+
+        document.getElementById('findRide').addEventListener('click', function() {
+            const location = document.getElementById('rideLocation').value;
+            document.getElementById('rideResult').textContent = `Searching for rides at ${location}...`;
+        });
+
+        document.getElementById('showStatistics').addEventListener('click', function() {
+            document.getElementById('statisticsResult').textContent = 'Showing statistics: 120 rides completed, 200 users registered.';
+        });
+    </script>
 </body>
 </html>
